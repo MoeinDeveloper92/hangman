@@ -1,5 +1,5 @@
 import React from 'react';
-
+//the reason I put this inside the var is I want to show them conditionally
 const HEAD = (
   <div
     style={{
@@ -11,9 +11,8 @@ const HEAD = (
       top: '50px',
       right: '-20px',
     }}
-  ></div>
+  />
 );
-
 const BODY = (
   <div
     style={{
@@ -24,9 +23,8 @@ const BODY = (
       top: '100px',
       right: '2px',
     }}
-  ></div>
+  />
 );
-
 const RIGHT_ARM = (
   <div
     style={{
@@ -39,7 +37,7 @@ const RIGHT_ARM = (
       rotate: '-30deg',
       transformOrigin: 'left bottom',
     }}
-  ></div>
+  />
 );
 const LEFT_ARM = (
   <div
@@ -53,7 +51,7 @@ const LEFT_ARM = (
       rotate: '30deg',
       transformOrigin: 'right bottom',
     }}
-  ></div>
+  />
 );
 const RIGHT_LEG = (
   <div
@@ -67,9 +65,8 @@ const RIGHT_LEG = (
       rotate: '60deg',
       transformOrigin: 'left bottom',
     }}
-  ></div>
+  />
 );
-
 const LEFT_LEG = (
   <div
     style={{
@@ -82,7 +79,7 @@ const LEFT_LEG = (
       rotate: '-60deg',
       transformOrigin: 'right bottom',
     }}
-  ></div>
+  />
 );
 
 const BODY_PART = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];

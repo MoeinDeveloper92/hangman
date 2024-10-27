@@ -30,7 +30,18 @@ const KEYS = [
   'z',
 ];
 
-const KeyBoard = () => {
+type KeyBoardProps = {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+  disabled: boolean;
+};
+const KeyBoard = ({
+  activeLetters,
+  inactiveLetters,
+  addGuessedLetter,
+  disabled = false,
+}: KeyBoardProps) => {
   return (
     <div
       style={{
@@ -39,11 +50,22 @@ const KeyBoard = () => {
         gap: '.5rem',
       }}
     >
-      {KEYS.map((key) => (
-        <button className={`${styles.btn} `} key={key}>
-          {key}
-        </button>
-      ))}
+      {KEYS.map((key) => {
+        const isActive = activeLetters.includes(key);
+        const isInactive = inactiveLetters.includes(key);
+        return (
+          <button
+            onClick={addGuessedLetter}
+            className={`${styles.btn} ${isActive ? styles.active : ''} ${
+              isInactive ? styles.inactive : ''
+            } `}
+            key={key}
+            disabled={isInactive || isActive || disabled}
+          >
+            {key}
+          </button>
+        );
+      })}
     </div>
   );
 };

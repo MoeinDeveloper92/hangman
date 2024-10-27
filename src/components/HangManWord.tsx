@@ -3,10 +3,11 @@ import React from 'react';
 type HangManWordProps = {
   guessedLetters: string[];
   wordToGuess: string;
+  reveal: boolean;
 };
 
 const HangManWord = (props: HangManWordProps) => {
-  const { guessedLetters, wordToGuess } = props;
+  const { guessedLetters, wordToGuess, reveal } = props;
   return (
     <div
       style={{
@@ -23,9 +24,12 @@ const HangManWord = (props: HangManWordProps) => {
           <span
             key={index}
             style={{
-              visibility: guessedLetters.includes(letter)
-                ? 'visible'
-                : 'hidden',
+              visibility:
+                guessedLetters.includes(letter) || reveal
+                  ? 'visible'
+                  : 'hidden',
+              color:
+                !guessedLetters.includes(letter) && reveal ? 'red' : 'black',
             }}
           >
             {letter}
